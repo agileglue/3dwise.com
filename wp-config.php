@@ -4,11 +4,11 @@ $services_json = json_decode($services,true);
 $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
 
 // ** MySQL settings from resource descriptor ** //
-define('DB_NAME', "3dwise");
-define('DB_USER', "3dwise");
-define('DB_PASSWORD', "simmons");
-define('DB_HOST', "127.0.0.1");
-define('DB_PORT', "3306");
+define('DB_NAME', $mysql_config["name"]);
+define('DB_USER', $mysql_config["user"]);
+define('DB_PASSWORD', $mysql_config["password"]);
+define('DB_HOST', $mysql_config["hostname"]);
+define('DB_PORT', $mysql_config["port"]);
 
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
@@ -27,4 +27,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
